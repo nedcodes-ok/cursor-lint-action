@@ -1,0 +1,33 @@
+name: 'Cursor Lint'
+description: 'Lint your Cursor .mdc and .cursorrules files — catch silent failures in CI'
+author: 'nedcodes'
+
+branding:
+  icon: 'check-circle'
+  color: 'orange'
+
+inputs:
+  directory:
+    description: 'Directory to lint (default: repository root)'
+    required: false
+    default: '.'
+  verify:
+    description: 'Run --verify mode to check code against rule patterns'
+    required: false
+    default: 'false'
+  version:
+    description: 'cursor-lint version to use'
+    required: false
+    default: 'latest'
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Run cursor-lint
+      shell: bash
+      run: |
+        ARGS="${{ inputs.directory }}"
+        if [ "${{ inputs.verify }}" = "true" ]; then
+          ARGS="--verify"
+        fi
+        npx cursor-lint@${{ inputs.version }} $ARGS
