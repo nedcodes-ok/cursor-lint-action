@@ -69,7 +69,7 @@ This action catches those in CI so they never merge.
 
 ## Need a deeper review?
 
-This action catches structural issues. For a full review of your rules, project structure, and model settings — [$50 async setup audit](https://cursorrulespacks.gumroad.com/l/cursor-setup-audit). Written report with specific fixes.
+This action catches structural issues. For a full review of your rules, project structure, and model settings — [$50 async setup audit](https://nedcodes.gumroad.com/l/cursor-setup-audit). Written report with specific fixes.
 
 ## Links
 
