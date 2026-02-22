@@ -24,7 +24,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: cursorrulespacks/cursor-lint-action@v1
+      - uses: nedcodes-ok/cursor-lint-action@v1
 ```
 
 ## Inputs
@@ -40,7 +40,7 @@ jobs:
 ### Lint a specific directory
 
 ```yaml
-- uses: cursorrulespacks/cursor-lint-action@v1
+- uses: nedcodes-ok/cursor-lint-action@v1
   with:
     directory: './packages/frontend'
 ```
@@ -48,7 +48,7 @@ jobs:
 ### Verify code follows rules
 
 ```yaml
-- uses: cursorrulespacks/cursor-lint-action@v1
+- uses: nedcodes-ok/cursor-lint-action@v1
   with:
     verify: true
 ```
@@ -56,7 +56,7 @@ jobs:
 ### Pin a version
 
 ```yaml
-- uses: cursorrulespacks/cursor-lint-action@v1
+- uses: nedcodes-ok/cursor-lint-action@v1
   with:
     version: '0.3.1'
 ```
@@ -73,10 +73,10 @@ This action catches structural issues. For a full review of your rules, project 
 
 ## Links
 
-- [cursor-lint CLI](https://github.com/cursorrulespacks/cursor-lint)
+- [cursor-lint CLI](https://github.com/nedcodes-ok/cursor-lint)
 - [VS Code extension](https://open-vsx.org/extension/nedcodes/cursor-lint)
 - [npm](https://www.npmjs.com/package/cursor-lint)
-- [Free rules collection](https://github.com/cursorrulespacks/cursorrules-collection)
+- [Free rules collection](https://github.com/nedcodes-ok/cursorrules-collection)
 
 ## License
 
