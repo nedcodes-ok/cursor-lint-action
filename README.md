@@ -1,5 +1,7 @@
 # Cursor Lint Action
 
+> ⚠️ **This action now uses [cursor-doctor](https://github.com/nedcodes-ok/cursor-doctor)** — the evolution of cursor-lint with broader diagnostics and auto-fix.
+
 Lint your Cursor `.mdc` and `.cursorrules` files in CI. Catches silent failures before they reach your team.
 
 ## What it catches
@@ -10,8 +12,7 @@ Lint your Cursor `.mdc` and `.cursorrules` files in CI. Catches silent failures 
 - Missing descriptions (agent can't trigger the rule)
 - Vague rules ("follow best practices" has zero effect)
 - Bad glob syntax
-
-Based on [real testing](https://dev.to/nedcodes/what-i-actually-put-in-my-project-context-files-1de3) across Sonnet 4.5, Gemini 3 Flash, and GPT-5.1 Codex Mini.
+- Conflicting rules across files
 
 ## Usage
 
@@ -32,8 +33,7 @@ jobs:
 | Input | Description | Default |
 |-------|-------------|---------|
 | `directory` | Directory to lint | `.` |
-| `verify` | Run `--verify` mode (check code against rule patterns) | `false` |
-| `version` | cursor-lint version | `latest` |
+| `version` | cursor-doctor version | `latest` |
 
 ## Examples
 
@@ -45,20 +45,12 @@ jobs:
     directory: './packages/frontend'
 ```
 
-### Verify code follows rules
-
-```yaml
-- uses: nedcodes-ok/cursor-lint-action@v1
-  with:
-    verify: true
-```
-
 ### Pin a version
 
 ```yaml
 - uses: nedcodes-ok/cursor-lint-action@v1
   with:
-    version: '0.3.1'
+    version: '1.1.4'
 ```
 
 ## Why use this
@@ -67,15 +59,14 @@ Two out of seven ways an `.mdc` file can be malformed cause **silent failures**.
 
 This action catches those in CI so they never merge.
 
-## Need a deeper review?
+## Need deeper diagnostics?
 
-This action catches structural issues. For a full review of your rules, project structure, and model settings — [$50 async setup audit](https://nedcodes.gumroad.com/l/cursor-setup-audit). Written report with specific fixes.
+**[cursor-doctor Pro](https://nedcodes.gumroad.com/l/cursor-doctor-pro)** ($9 one-time) — full diagnostic report with conflict detection, redundancy analysis, token budget breakdown, and auto-fix.
 
 ## Links
 
-- [cursor-lint CLI](https://github.com/nedcodes-ok/cursor-lint)
-- [VS Code extension](https://open-vsx.org/extension/nedcodes/cursor-lint)
-- [npm](https://www.npmjs.com/package/cursor-lint)
+- [cursor-doctor CLI](https://github.com/nedcodes-ok/cursor-doctor)
+- [npm](https://www.npmjs.com/package/cursor-doctor)
 - [Free rules collection](https://github.com/nedcodes-ok/cursorrules-collection)
 
 ## License

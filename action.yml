@@ -1,5 +1,5 @@
-name: 'Cursor Lint'
-description: 'Lint your Cursor .mdc and .cursorrules files — catch silent failures in CI'
+name: 'Cursor Doctor'
+description: 'Diagnose your Cursor .mdc and .cursorrules files — catch silent failures in CI'
 author: 'nedcodes'
 
 branding:
@@ -11,23 +11,16 @@ inputs:
     description: 'Directory to lint (default: repository root)'
     required: false
     default: '.'
-  verify:
-    description: 'Run --verify mode to check code against rule patterns'
-    required: false
-    default: 'false'
   version:
-    description: 'cursor-lint version to use'
+    description: 'cursor-doctor version to use'
     required: false
     default: 'latest'
 
 runs:
   using: 'composite'
   steps:
-    - name: Run cursor-lint
+    - name: Run cursor-doctor
       shell: bash
       run: |
-        ARGS="${{ inputs.directory }}"
-        if [ "${{ inputs.verify }}" = "true" ]; then
-          ARGS="--verify"
-        fi
-        npx cursor-lint@${{ inputs.version }} $ARGS
+        cd ${{ inputs.directory }}
+        npx cursor-doctor@${{ inputs.version }} check
